@@ -15,7 +15,12 @@
 
 
 ## session_key
+
+
 打开:https://claude.ai/settings/usage
+
+
+sessionKey过期不晓得,我4个账户的sessionKey过期都是:`2026-05-26T03:17:16.296Z`,估计活跃自动续期。
 
 ![获取 sessionKey](images/sessionKey.png)
 
