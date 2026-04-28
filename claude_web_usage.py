@@ -12,7 +12,7 @@ CONFIG_FILE = Path(__file__).parent / "config.json"
 # ── 颜色 ──────────────────────────────────────────────────────────────────────
 R="\033[0m"; B="\033[1m"
 CY="\033[36m"; GR="\033[32m"; YL="\033[33m"
-RD="\033[31m"; GY="\033[90m"; WH="\033[97m"; MG="\033[35m"
+RD="\033[31m"; GY="\033[90m"; WH="\033[97m"
 def c(t, col): return f"{col}{t}{R}"
 
 # ── API ───────────────────────────────────────────────────────────────────────
@@ -88,26 +88,6 @@ def fmt_reset(iso: str | None) -> str:
         else:
             raw, col = f"{h:2d}h{m:02d}m后", CY if h >= 1 else RD
     return c(raw, col) + " " * max(0, RESET_W - _vlen(raw))
-
-def score(data: dict | None) -> float:
-    """越低越好（0=最佳）。5小时即将重置则折算惩罚"""
-    if not data:
-        return 999
-    fh_info = data.get("five_hour") or {}
-    sd_info = data.get("seven_day") or {}
-    fh_pct  = fh_info.get("utilization") or 0.0
-    sd_pct  = sd_info.get("utilization") or 0.0
-    fh_reset = fh_info.get("resets_at")
-
-    # 5小时即将重置：按剩余时间比例折算惩罚
-    if fh_pct >= 90 and fh_reset:
-        secs = (datetime.fromisoformat(fh_reset) - datetime.now(timezone.utc)).total_seconds()
-        if 0 < secs <= 1800:          # 30 分钟内重置
-            fh_pct = fh_pct * (secs / 1800)
-        elif secs <= 0:
-            fh_pct = 0.0
-
-    return fh_pct * 2 + sd_pct
 
 # ── 主流程 ────────────────────────────────────────────────────────────────────
 def main():
