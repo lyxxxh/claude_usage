@@ -1,0 +1,15 @@
+{
+  "proxy": "http://127.0.0.1:9999",
+  "accounts": [
+    {
+      "name": "账号1",
+      "org_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "session_key": "sk-ant-sid01-..."
+    },
+    {
+      "name": "账号2",
+      "org_id": "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+      "session_key": "sk-ant-sid01-..."
+    }
+  ]
+}
