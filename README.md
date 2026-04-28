@@ -12,7 +12,11 @@
 我的:claude_run.bat:
 ```python "C:\Users\Administrator\code\claude_usage\claude_web_usage.py"```
 
+
+
 ## session_key
+打开:https://claude.ai/settings/usage
+
 ![获取 sessionKey](images/sessionKey.png)
 
 `session_key` 约一年,不担心过期。
