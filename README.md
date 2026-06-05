@@ -17,6 +17,12 @@ python "C:\Users\Administrator\code\claude_usage\claude_web_usage.py"
 
 
 
+## 搭配定时任务,让用量窗口错峰刷新
+
+本工具只负责**查看**多账号的 5 小时 / 7 天用量。如果想让 5 小时重置窗口持续滚动、覆盖一整天,建议搭配 Claude Code 的 `/schedule` 定时任务,在固定时间点(如 6:00 / 11:00 / 16:00)各发一次请求来刷新窗口,几个窗口相互重叠即可。
+
+思路详见:https://www.v2ex.com/t/1216409
+
 ## session_key
 
 
