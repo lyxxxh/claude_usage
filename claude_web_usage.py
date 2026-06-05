@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-查询多个 claude.ai 账号的限额，一眼看出哪个账号最佳
+查询多个 claude.ai 账号的限额，一眼对比各账号用量
 """
 
 import os, sys, json, urllib.request, urllib.error, concurrent.futures
